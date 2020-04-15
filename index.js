@@ -41,5 +41,5 @@ app.post('/login', function (req, res) {
 
 })
 
-let port=4000 || process.env.PORT;
+let port = process.env.PORT || 5000 ;
 app.listen(port, () => console.log('servidor rodando'));
