@@ -1,0 +1,45 @@
+const express = require('express');
+const bodyParser = require('body-parser');
+const nodemailer = require('nodemailer');
+const cors = require('cors');
+
+let app = express();
+
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
+
+
+var transporter = nodemailer.createTransport({
+    host: 'smtp.hostinger.com.br',
+    port: 587,
+    secure: false,
+    auth: {
+        user: 'contato@fernandoparanhos.com.br',
+        pass: '383242721'
+   }
+});
+
+
+app.get('/', (req, res) => res.send('servidor rodando'));
+
+app.post('/login', function (req, res) {
+    console.log('Body ===>', req.body);
+    var mailOptions = {
+        from: 'contato@fernandoparanhos.com.br',
+        to: req.body.email,
+        subject: req.body.nome,
+        text: req.body.conteudo
+    }
+    transporter.sendMail(mailOptions, function(err, info){
+        if(err){
+            res.send(err);
+        }else{
+            res.send('Mensagem enviada com sucesso');
+        }
+    });
+
+})
+
+let port=4000 || process.env.PORT;
+app.listen(port, () => console.log('servidor rodando'));
