@@ -25,7 +25,6 @@ app.get('/', (req, res) => res.send('servidor rodando'));
 
 app.post('/login', function (req, res) {
     console.log('Body ===>', req.body);
-    res.header("Accees-Control-Allow-Origin", "https//fernandoparanhos.com.br")
     var mailOptions = {
         from: 'contato@fernandoparanhos.com.br',
         to: req.body.email,
