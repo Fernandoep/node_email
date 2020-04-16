@@ -26,7 +26,7 @@ app.get('/', (req, res) => res.send('servidor rodando'));
 app.post('/login', function (req, res) {
     console.log('Body ===>', req.body);
     var mailOptions = {
-        from: req.body.email,
+        from: 'contato@fernandoparanhos.com.br',
         to: 'fernandoeparanhos@gmail.com',
         subject: req.body.nome,
         text: req.body.conteudo
