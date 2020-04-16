@@ -29,13 +29,14 @@ app.post('/login', function (req, res) {
         from: 'contato@fernandoparanhos.com.br',
         to: 'fernandoeparanhos@gmail.com',
         subject: req.body.nome,
-        text: req.body.conteudo
+        text: `Cliente: ${req.body.conteudo}, telefone: ${req.body.telefone} <br> Mensagem: ${req.body.conteudo}`
     }
     transporter.sendMail(mailOptions, function(err, info){
         if(err){
             res.send(err);
         }else{
             res.send('Mensagem enviada com sucesso');
+       
         }
     });
 
