@@ -21,12 +21,14 @@ var transporter = nodemailer.createTransport({
 });
 
 
+
+
 app.get('/', (req, res) => res.send('servidor rodando'));
 
 app.post('/login', function (req, res) {
     console.log('Body ===>', req.body);
     var mailOptions = {
-        from: req.body.email,
+        from: 'contato@fernandoparanhos.com.br',
         to: 'fernandoeparanhos@gmail.com',
         subject: req.body.nome,
         text: `Cliente: ${req.body.conteudo}, telefone: ${req.body.telefone} Mensagem: ${req.body.conteudo} e-mail: ${req.body.email}`
