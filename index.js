@@ -15,7 +15,7 @@ var transporter = nodemailer.createTransport({
     port: 587,
     secure: false,
     auth: {
-        user: 'contato@fernandoparanhos.com.br',
+        user: 'site@fernandoparanhos.com.br',
         pass: '383242721'
    }
 });
@@ -28,7 +28,7 @@ app.get('/', (req, res) => res.send('servidor rodando'));
 app.post('/login', function (req, res) {
     console.log('Body ===>', req.body);
     var mailOptions = {
-        from: 'contato@fernandoparanhos.com.br',
+        from: 'site@fernandoparanhos.com.br',
         to: 'fernandoeparanhos@gmail.com',
         subject: req.body.nome,
         text: `Cliente: ${req.body.conteudo}, telefone: ${req.body.telefone} Mensagem: ${req.body.conteudo} e-mail: ${req.body.email}`
